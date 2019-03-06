@@ -1,4 +1,41 @@
+package iSoftware;
+//se implementa una pila FIFO : first-in-first-out 
 public class AlmacenLotes{
-    private Lote[] lotes;
+	public static int maxCapacidad;
+
+    public static  Lote[] lotes;
+    public AlmacenLotes() {
+    	AlmacenLotes.maxCapacidad = 7; //7 lotes simultáneamente
+    	AlmacenLotes.lotes = new Lote[7]; 
+    	
+    }
     
+    public static void almacenarLote() {
+   
+}
+    public static Lote sacarLote() {
+    	//devuelve el lote  almacenado hace más tiempo -- pila FIFO
+        //falta definir aDevolver con un código válido que pasar al constructor
+    	
+    	
+    	if( AlmacenLotes.lotes.length !=0 && AlmacenLotes.lotes.length <=6 ) { 
+    		for (int i =0; i < maxCapacidad ; i++) {
+    			while(lotes[i] != null) {
+    				continue;
+    								}	
+    			Lote aDevolver = new Lote(lotes[i-1] );
+    				aDevolver = lotes[i-1];
+    				lotes[i-1]= null;
+    				}
+    		return aDevolver;}
+    	else if (AlmacenLotes.lotes.length == AlmacenLotes.maxCapacidad){ 
+    		aDevolver = lotes[maxCapacidad-1];
+    		lotes[maxCapacidad-1] = null;
+    		return aDevolver;
+	}
+    	else  {
+	System.out.println("No se puede sacar un lote, el almacén de lotes está vacío o contiene un número de lotes que"
+			+ "excede la capacidad del almacén.");
+}
+}
 }
